@@ -79,7 +79,7 @@ function five_recent_news_page() {
   xmlns:xisd="http://www.w3.org/2001/XMLSchema#">';
   print '<head profile="http://www.w3.org/1999/xhtml/vocab">';
   print '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />';
-  print "<link type='text/css' rel='stylesheet' href='http://test.dagens.dk/sites/all/modules/five_recent_news/five_recent_news.css' media='all'>";
+  print "<link type='text/css' rel='stylesheet' href='http://www.dagens.dk/sites/all/modules/five_recent_news/five_recent_news.css' media='all'>";
   print "</head>";
   print "<body>";
   print views_embed_view('5_recent_news','block');
