@@ -97,9 +97,9 @@ function five_recent_news_views_default_views() {
   $handler->display->display_options['footer']['area']['id'] = 'area';
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
-  $handler->display->display_options['footer']['area']['content'] = '<div class="five_recent_news_bottom">
+  $handler->display->display_options['footer']['area']['content'] = '<div class="five_recent_news_bottom" style="padding: 5px;">
 <span style="font-weight:bold; margin-right:20px">Parter</span> 
-<a href="http://www.dagens.dk" target= "_blank" style="color:#E31A1A; text-decoration=underline;">Se flere nyheder på dagens.dk</a>
+<a href="http://www.dagens.dk" target= "_blank" style="color:#E31A1A; text-decoration:underline;">Se flere nyheder på dagens.dk</a>
 <div class="news_bottom_logo"><img src="http://www.dagens.dk/sites/all/themes/dagens/logo.png" /></div>
 </div>';
   $handler->display->display_options['footer']['area']['format'] = 'full_html';
