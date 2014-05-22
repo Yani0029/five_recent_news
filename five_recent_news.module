@@ -11,7 +11,7 @@ include_once 'five_recent_news.features.inc';
  */
 function five_recent_news_menu() {
   $items = array();
-  $items['admin/config/five_recent_news'] = array(
+  /*$items['admin/config/five_recent_news'] = array(
     'title' => t('5 seneste nyheder iframe'),
     'description' => t('Hent 5 seneste nyheder iframe fra dagens.dk'),
     'position' => 'right',
@@ -20,13 +20,15 @@ function five_recent_news_menu() {
     'file' => 'system.admin.inc',
     'file path' => drupal_get_path('module', 'system'),
     'access arguments' => array('administer site configuration'),
-  );
-  $items['admin/config/five_recent_news/iframe'] = array(
+  );*/
+  $items['admin/content/five_recent_news/iframe'] = array(
     'title' => t('5 seneste nyheder iframe'),
     'description' => '',
     'page callback' => 'drupal_get_form',
     'page arguments' => array('five_recent_news_settings_form'),
-    'access arguments' => array('administer site configuration'),
+    'access callback' => TRUE,
+    'type' => MENU_LOCAL_TASK,
+    //'access arguments' => array('administer site configuration'),
   );
   $items['five_recent_news/page'] = array(
     'title' => t('5 seneste nyheder'),
@@ -50,12 +52,12 @@ function five_recent_news_settings_form($form, $form_state) {
   $form['five_recent_news_settings']['five_recent_news_iframe_view'] = array(
   '#type' => 'item',
   '#title' => t('iframe view'),
-  '#markup' => '<iframe src="http://www.dagens.dk/five_recent_news/page" height = "220" width = "330"><p>Your browser does not support iframes.</p></iframe>',
+  '#markup' => '<iframe src="http://www.dagens.dk/five_recent_news/page" height = "240" width = "330"><p>Your browser does not support iframes.</p></iframe>',
   );
   $form['five_recent_news_settings']['five_recent_news_iframe'] = array(
   '#type' => 'textfield',
   '#title' => t('iframe code'),
-  '#default_value' => '<iframe src="http://www.dagens.dk/five_recent_news/page" height = "220" width = "330"><p>Your browser does not support iframes.</p></iframe>',
+  '#default_value' => '<iframe src="http://www.dagens.dk/five_recent_news/page" height = "240" width = "330"><p>Your browser does not support iframes.</p></iframe>',
   '#size' => 200,
   );
 
