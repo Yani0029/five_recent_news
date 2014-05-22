@@ -38,7 +38,7 @@ body {
   display: inline;
 }
 .news_bottom_logo img {
-  width: 50px;
+  max-width: 50px;
   height: inherit;
 }
 .view-5-recent-news a {
