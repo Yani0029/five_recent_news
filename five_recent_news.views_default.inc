@@ -50,6 +50,13 @@ function five_recent_news_views_default_views() {
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Filterkriterie: Indhold: Oprettelsesdato */
+  $handler->display->display_options['filters']['created']['id'] = 'created';
+  $handler->display->display_options['filters']['created']['table'] = 'node';
+  $handler->display->display_options['filters']['created']['field'] = 'created';
+  $handler->display->display_options['filters']['created']['operator'] = '>=';
+  $handler->display->display_options['filters']['created']['value']['value'] = '-24 hours';
+  $handler->display->display_options['filters']['created']['group'] = 1;
   /* Filterkriterie: Indhold: Udgivet */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -64,11 +71,19 @@ function five_recent_news_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'article' => 'article',
   );
+  $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filterkriterie: Indhold: Featured (field_featured) */
+  $handler->display->display_options['filters']['field_featured_value']['id'] = 'field_featured_value';
+  $handler->display->display_options['filters']['field_featured_value']['table'] = 'field_data_field_featured';
+  $handler->display->display_options['filters']['field_featured_value']['field'] = 'field_featured_value';
+  $handler->display->display_options['filters']['field_featured_value']['value'] = array(
+    'Yes (promoted to the Featured Articles Section)' => 'Yes (promoted to the Featured Articles Section)',
+  );
 
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'dagens.dk Seneste nyheder';
+  $handler->display->display_options['title'] = 'Dagens.dk Seneste nyheder';
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
@@ -85,7 +100,7 @@ function five_recent_news_views_default_views() {
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['content'] = 'dagens.dk - Seneste nyheder';
+  $handler->display->display_options['header']['area']['content'] = 'Dagens.dk - Seneste nyheder';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
   $handler->display->display_options['defaults']['footer'] = FALSE;
   /* Sidefod: Global: View-område */
@@ -98,9 +113,9 @@ function five_recent_news_views_default_views() {
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
   $handler->display->display_options['footer']['area']['content'] = '<div class="five_recent_news_bottom" style="padding: 5px;">
-<span style="font-weight:bold; margin-right:20px">Parter</span> 
-<a href="http://www.dagens.dk" target= "_blank" style="color:#E31A1A; text-decoration:underline;">Se flere nyheder på dagens.dk</a>
-<div class="news_bottom_logo"><img src="http://www.dagens.dk/sites/all/themes/dagens/logo.png" /></div>
+<span style="font-weight:bold; margin-right:20px">Partner</span> 
+<a href="http://www.dagens.dk" target= "_blank" style="color:#E31A1A; text-decoration:underline;"><b>Se flere nyheder på Dagens.dk</b></a>
+<div class="news_bottom_logo"><img src="http://www.dagens.dk/sites/default/files/favicon_0_1.ico" /></div>
 </div>';
   $handler->display->display_options['footer']['area']['format'] = 'full_html';
   $handler->display->display_options['defaults']['fields'] = FALSE;
@@ -131,7 +146,7 @@ function five_recent_news_views_default_views() {
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '4';
-  $handler->display->display_options['pager']['options']['offset'] = '1';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Felt: Indhold: Titel */
   $handler->display->display_options['fields']['title']['id'] = 'title';
@@ -140,9 +155,40 @@ function five_recent_news_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['title']['alter']['text'] = ' - [title]';
+  $handler->display->display_options['fields']['title']['alter']['max_length'] = '57';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['trim'] = TRUE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filterkriterie: Indhold: Oprettelsesdato */
+  $handler->display->display_options['filters']['created']['id'] = 'created';
+  $handler->display->display_options['filters']['created']['table'] = 'node';
+  $handler->display->display_options['filters']['created']['field'] = 'created';
+  $handler->display->display_options['filters']['created']['operator'] = '>=';
+  $handler->display->display_options['filters']['created']['value']['value'] = '-24 hours';
+  $handler->display->display_options['filters']['created']['group'] = 1;
+  /* Filterkriterie: Indhold: Udgivet */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filterkriterie: Indhold: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'article' => 'article',
+  );
+  $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filterkriterie: Indhold: Forfremmet til forside */
+  $handler->display->display_options['filters']['promote']['id'] = 'promote';
+  $handler->display->display_options['filters']['promote']['table'] = 'node';
+  $handler->display->display_options['filters']['promote']['field'] = 'promote';
+  $handler->display->display_options['filters']['promote']['value'] = '1';
   $export['5_recent_news'] = $view;
 
   return $export;
