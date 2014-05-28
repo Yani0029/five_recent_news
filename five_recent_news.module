@@ -42,12 +42,12 @@ function five_recent_news_settings_form($form, $form_state) {
   $form['five_recent_news_settings']['five_recent_news_iframe_view'] = array(
   '#type' => 'item',
   '#title' => t('iframe view'),
-  '#markup' => '<iframe src="http://www.dagens.dk/five_recent_news/page" height = "205" width = "330"><p>Your browser does not support iframes.</p></iframe>',
+  '#markup' => '<iframe src="http://www.dagens.dk/five_recent_news/page" height = "205" width = "310"><p>Your browser does not support iframes.</p></iframe>',
   );
   $form['five_recent_news_settings']['five_recent_news_iframe'] = array(
   '#type' => 'textfield',
   '#title' => t('iframe code'),
-  '#default_value' => '<iframe src="http://www.dagens.dk/five_recent_news/page" height = "205" width = "330"><p>Your browser does not support iframes.</p></iframe>',
+  '#default_value' => '<iframe src="http://www.dagens.dk/five_recent_news/page" height = "205" width = "310"><p>Your browser does not support iframes.</p></iframe>',
   '#size' => 200,
   );
 
@@ -77,7 +77,9 @@ function five_recent_news_page() {
   print views_embed_view('5_recent_news','block');
   print '<script type="text/javascript"> var as = document.getElementsByTagName("a");
     for (var i = 0, l = as.length; i < l; i++) {
+      var link = "http://eas8.emediate.eu/eas?camp=180739;ty=ct;EASLink=" + as[i].href;
       as[i].setAttribute("target","_blank");
+      as[i].href = link;
     }
   </script>';
   print "</body></html>";
