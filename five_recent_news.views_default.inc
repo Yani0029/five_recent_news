@@ -155,7 +155,7 @@ function five_recent_news_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['title']['alter']['text'] = ' - [title]';
-  $handler->display->display_options['fields']['title']['alter']['max_length'] = '57';
+  $handler->display->display_options['fields']['title']['alter']['max_length'] = '52';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['trim'] = TRUE;
